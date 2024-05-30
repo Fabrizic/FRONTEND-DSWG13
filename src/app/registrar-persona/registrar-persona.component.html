@@ -1,0 +1,157 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="/assets/bootstrap-logo.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      SIGCON
+    </a>
+  </div>
+</nav>
+<div class="container">
+  <!-- Content here -->
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Registro de Personas</h5>
+        <form class="row g-4 needs-validation" [formGroup]="personaForm">
+          <div class="form-group">
+            <label for="InputAPaterno" class="form-label"
+              >Apellido Paterno:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Consigne el Apellido Paterno"
+              formControlName="apellido_paterno"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                personaForm.controls['apellido_paterno'].invalid &&
+                (isFormSubmitted ||
+                  personaForm.controls['apellido_paterno'].touched ||
+                  personaForm.controls['apellido_paterno'].dirty)
+              "
+            >
+              <span
+                *ngIf="personaForm.controls['apellido_paterno'].errors?.['required']"
+                >This Is Required</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="InputAMaterno" class="form-label"
+              >Apellido Materno:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Consigne el Apellido Materno"
+              formControlName="apellido_materno"
+            />
+          </div>
+          <div class="form-group">
+            <label for="Nombres" class="form-label">Nombres:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Consigne los Nombres"
+              formControlName="nombres"
+            />
+          </div>
+          <div class="form-group" type="datetime-local">
+            <label for="FNac" class="form-label">Fecha Nacimiento:</label>
+            <input
+              type="date"
+              class="form-control"
+              placeholder="Consigne la fecha de nacimiento dd/mm/yyyy"
+              formControlName="fecha_nacimiento"
+            />
+          </div>
+
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!personaForm.valid"
+              (click)="registrarPersona()"
+            >
+              Registrar
+            </button>
+            <button class="btn btn-danger" (click)="cancelarRegistro()">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Apaterno</th>
+              <th scope="col">Amaterno</th>
+              <th scope="col">Nombres</th>
+              <th scope="col">FNac</th>
+              <th scope="col">TipoDoc</th>
+              <th scope="col">NDoc</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Ubigeo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let persona of personaArray
+                  | paginate : { itemsPerPage: 10, currentPage: page };
+                let i = index
+              "
+            >
+              <td>{{ i + 1 }}</td>
+              <td>{{ persona.apellido_paterno }}</td>
+              <td>{{ persona.apellido_materno }}</td>
+              <td>{{ persona.nombres }}</td>
+              <td>
+                {{
+                  persona.fecha_nacimiento
+                    | date : "dd/MM/yyyy" : "UTC" + offset
+                }}
+              </td>
+              <td>{{ persona.id_tipo_documento }}</td>
+              <td>{{ persona.ndocumento }}</td>
+              <td>{{ persona.direccion }}</td>
+              <td>{{ persona.idubigeo }}</td>
+              <td>
+                <button
+                  class="btn btn-primary"
+                  (click)="editarPersona(persona)"
+                >
+                  Editar
+                </button>
+                <button
+                  class="btn btn-danger"
+                  (click)="eliminarPersona(persona)"
+                >
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pagination-controls
+        (pageChange)="page = $event"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>
