@@ -7,7 +7,7 @@ import { Persona } from '../model/Persona';
   providedIn: 'root',
 })
 export class PersonaService {
-  readonly BASE_URL: string = 'http://localhost:5000/api/v1/personas';
+  readonly BASE_URL: string = 'https://flask-crud-backend-v2-1.onrender.com/api/v1/personas';
   //'http://localhost:8080/api/v1/personas';
   //'https://sigcon-backend.onrender.com/api/v1/personas';
 

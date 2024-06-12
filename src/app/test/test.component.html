@@ -1,0 +1,236 @@
+<header
+class="bg-dark text-white px-4 py-2 d-flex justify-content-between align-items-center"
+>
+<div class="d-flex align-items-center">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="h-6 w-6 mr-2"
+  >
+    <path
+      d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+    ></path>
+    <path
+      d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+    ></path>
+    <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+    <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+    <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+    <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+    <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+    <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+    <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+  </svg>
+  <h1 class="h4 ml-2 mb-0">SISVITA</h1>
+</div>
+<nav class="d-none d-md-flex">
+    <a class="nav-link text-white" href="#">Inicio</a>
+    <a class="nav-link text-white" href="#">Chatbot</a>
+    <a class="nav-link text-white" href="#">Tests</a>
+</nav>
+<div class="dropdown">
+  <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" style="width: 40px; height: 40px;">
+      <path fill-rule="evenodd" d="M8 1a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm4 6a4 4 0 1 1-8 0 .918.918 0 0 1 .164-.57C4.757 6.062 6 6 6 6h4s1.243.062 1.836.43c.058.1.11.21.164.57z"/>
+    </svg>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+    <a class="dropdown-item" href="#">Ver perfil</a>
+    <a class="dropdown-item" href="#">Cerrar sesión</a>
+  </div>
+</div>
+<button class="btn btn-outline-light d-md-none">
+  <svg
+    width="24"
+    height="24"
+    fill="currentColor"
+    class="bi bi-list"
+    viewBox="0 0 16 16"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M3.5 12.5a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9zm0-4a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9zm0-4a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9z"
+    />
+  </svg>
+</button>
+</header>
+<main class="flex-grow-1">
+    <section id="tests" class="bg-light py-5 px-3 px-md-5">
+      <div class="container">
+        <h2 class="display-5 mb-4">Test de Ansiedad de Zung</h2>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <form class="space-y-4">
+              <div class="mb-3">
+                <p>A continuación se presenta una lista de</p>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Pregunta</th>
+                      <th>Casi nunca</th>
+                      <th>Alguna vez</th>
+                      <th>A menudo</th>
+                      <th>Muy a menudo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Me siento más nervioso(a) y</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me siento con miedo sin razón.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me altero o me asusta fácilmente.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me siento como si me fuera a desmayar y perder el control.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Siento que todo me está</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Mis brazos y piernas t</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me molestan dolores d</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me siento débil y me canso fácilmente.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me siento tranquil</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Puedo sentir que</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Tengo sensaciones de ahogo o falta de aire.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Siento que teng</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Mis manos, pies y piernas se me entumecen y se me ponen fríos.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me orino con mucha frecuencia.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Mis manos están usualmente secas y calientes.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Se me enrojecen la cara y las orejas con frecuencia.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                    <tr>
+                      <td>Me duermo con facilidad y descanso bien por la noche.</td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
+                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary">Calcular</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-dark text-white py-3 px-4 d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+            <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path>
+            <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path>
+            <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+            <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+            <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+            <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+            <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+            <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+            <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+        </svg>
+        <span class="text-sm">© 2024 SISVITA. Todos los derechos reservados.</span>
+    </div>
+    <nav class="d-none d-md-flex align-items-center gap-3">
+        <a class="text-sm text-white text-decoration-none" href="#">Términos y Condiciones</a>
+        <a class="text-sm text-white text-decoration-none" href="#">Política de Privacidad</a>
+    </nav>
+</footer>

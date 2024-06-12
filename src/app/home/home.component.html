@@ -1,0 +1,247 @@
+<header
+  class="bg-dark text-white px-4 py-2 d-flex justify-content-between align-items-center"
+>
+  <div class="d-flex align-items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="h-6 w-6 mr-2"
+    >
+      <path
+        d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+      ></path>
+      <path
+        d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+      ></path>
+      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+      <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+      <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+      <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+      <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+      <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+    </svg>
+    <h1 class="h4 ml-2 mb-0">SISVITA</h1>
+  </div>
+  <nav class="d-none d-md-flex">
+    <a class="nav-link text-white" href="#">Inicio</a>
+    <a class="nav-link text-white" href="#">Chatbot</a>
+    <a class="nav-link text-white" href="#">Tests</a>
+  </nav>
+  <div class="dropdown">
+    <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" style="width: 40px; height: 40px;">
+        <path fill-rule="evenodd" d="M8 1a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm4 6a4 4 0 1 1-8 0 .918.918 0 0 1 .164-.57C4.757 6.062 6 6 6 6h4s1.243.062 1.836.43c.058.1.11.21.164.57z"/>
+      </svg>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+      <a class="dropdown-item" href="#">Ver perfil</a>
+      <a class="dropdown-item" href="#">Cerrar sesión</a>
+    </div>
+  </div>
+  <button class="btn btn-outline-light d-md-none">
+    <svg
+      width="24"
+      height="24"
+      fill="currentColor"
+      class="bi bi-list"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M3.5 12.5a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9zm0-4a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9zm0-4a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9z"
+      />
+    </svg>
+  </button>
+</header>
+<section class="bg-light py-5">
+  <div class="container text-center">
+    <h2 class="display-4 font-weight-bold" style="font-family: 'Segoe UI'">
+      Bienvenido a SISVITA
+    </h2>
+    <hr />
+    <p class="lead mb-4" style="font-family: sans-serif">
+      Somos una plataforma dedicada a brindar servicios psicológicos de alta
+      calidad. Nuestro objetivo es ayudarte a mejorar tu bienestar mental y
+      emocional.
+    </p>
+    <div class="d-flex justify-content-center">
+      <a href="#" class="btn btn-danger btn-lg mr-3">Chatbot</a>
+      <a href="#" class="btn btn-primary btn-lg">Tests</a>
+    </div>
+  </div>
+</section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2
+      class="display-4 text-center mb-4 font-weight-bold"
+      style="font-family: 'Segoe UI'"
+    >
+      Chatbot
+    </h2>
+    <div
+      class="chat-container bg-white rounded shadow-sm p-3 mb-5"
+      style="height: 400px; overflow-y: auto"
+    >
+      <div class="chat-message bot-message mb-3">
+        <div
+          class="p-3 rounded bg-dark text-white"
+          style="display: inline-block"
+        >
+          Hola, ¿cómo puedo ayudarte hoy?
+        </div>
+      </div>
+      <div class="chat-message user-message mb-3 text-right">
+        <div
+          class="p-3 rounded bg-primary text-white"
+          style="display: inline-block"
+        >
+          Necesito algunos consejos.
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Escribe un mensaje..."
+      />
+    </div>
+  </div>
+</section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2
+      class="display-4 text-center mb-4 font-weight-bold"
+      style="font-family: 'Segoe UI'"
+    >
+      Tests
+    </h2>
+    <p class="lead text-center mb-5" style="font-family: sans-serif">
+      Explora nuestra sección de tests psicológicos y descubre más sobre ti
+      mismo.
+    </p>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Test de Personalidad</h3>
+            <p class="card-text">
+              Descubre tu tipo de personalidad y cómo esto influye en tu vida.
+            </p>
+            <a href="#" class="btn btn-primary">Realizar Test</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Test de Estrés</h3>
+            <p class="card-text">
+              Evalúa tus niveles de estrés y aprende a manejarlo.
+            </p>
+            <a href="#" class="btn btn-primary">Realizar Test</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Test de Ansiedad</h3>
+            <p class="card-text">
+              Identifica y aprende a manejar tus síntomas de ansiedad.
+            </p>
+            <a href="test" class="btn btn-primary">Realizar Test</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Test de Depresión</h3>
+            <p class="card-text">
+              Evalúa tus síntomas de depresión y obtén ayuda.
+            </p>
+            <a href="#" class="btn btn-primary">Realizar Test</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2
+      class="display-4 text-center mb-4 font-weight-bold"
+      style="font-family: 'Segoe UI'"
+    >
+      Sobre Nosotros
+    </h2>
+    <p class="lead text-center mb-5" style="font-family: sans-serif">
+      SISVITA es una plataforma dedicada a brindar servicios psicológicos de
+      alta calidad. Nuestro equipo de profesionales altamente capacitados está
+      comprometido con mejorar el bienestar mental y emocional de nuestros
+      clientes.
+    </p>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h3 class="h4">Nuestra Misión</h3>
+        <p style="font-family: sans-serif">
+          Nuestra misión es ser un recurso confiable y accesible para aquellos
+          que buscan mejorar su salud mental y emocional. Nos esforzamos por
+          brindar un servicio personalizado y efectivo que ayude a nuestros
+          clientes a alcanzar sus objetivos.
+        </p>
+      </div>
+      <div class="col-md-6 mb-4">
+        <h3 class="h4">Nuestros Valores</h3>
+        <p style="font-family: sans-serif">
+          Integridad, empatía, excelencia y compromiso son los valores que guían
+          nuestro trabajo. Nos esforzamos por crear un entorno seguro y de
+          confianza donde nuestros clientes puedan sentirse cómodos y apoyados.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2
+      class="display-4 text-center mb-4 font-weight-bold"
+      style="font-family: 'Segoe UI'"
+    >
+      Contacto
+    </h2>
+    <p class="lead text-center mb-5" style="font-family: sans-serif">
+      Si tienes alguna pregunta o quieres programar una cita, no dudes en
+      ponerte en contacto con nosotros.
+    </p>
+  </div>
+</section>
+<footer class="bg-dark text-white py-3 px-4 d-flex align-items-center justify-content-between">
+  <div class="d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+          <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path>
+          <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path>
+          <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+          <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+          <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+          <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+          <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+          <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+          <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+      </svg>
+      <span class="text-sm">© 2024 SISVITA. Todos los derechos reservados.</span>
+  </div>
+  <nav class="d-none d-md-flex align-items-center gap-3">
+      <a class="text-sm text-white text-decoration-none" href="#">Términos y Condiciones</a>
+      <a class="text-sm text-white text-decoration-none" href="#">Política de Privacidad</a>
+  </nav>
+</footer>
