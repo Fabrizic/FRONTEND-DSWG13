@@ -8,7 +8,7 @@ import { Registrar } from '../model/Registrar';
 })
 export class RegistrarService {
   readonly BASE_URL: string =
-    'http://127.0.0.1:5000/register';
+    'https://sysvita-dswg13.onrender.com/register';
   constructor(private http: HttpClient) {}
 
   getRegistrar(): Observable<Registrar[]> {
