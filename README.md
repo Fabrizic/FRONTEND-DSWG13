@@ -5,8 +5,8 @@ Este proyecto es una aplicación web desarrollada con Angular.
 ## Contribuyentes
 
 - Leiva Misari, Fabrizio
-- Quispe Rueda, Diego
-- Duran Solis, Yago
+- Quispe Rueda, Diego Kevin
+- Solis Guerrero, Yago
 
 ## Requisitos
 
