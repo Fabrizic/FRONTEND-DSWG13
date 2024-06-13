@@ -64,149 +64,73 @@ class="bg-dark text-white px-4 py-2 d-flex justify-content-between align-items-c
 <main class="flex-grow-1">
     <section id="tests" class="bg-light py-5 px-3 px-md-5">
       <div class="container">
-        <h2 class="display-5 mb-4">Test de Ansiedad de Zung</h2>
         <div class="card shadow-sm">
           <div class="card-body">
-            <form class="space-y-4">
+            <form class="space-y-4" (ngSubmit)="onSubmit()">
               <div class="mb-3">
-                <p>A continuación se presenta una lista de</p>
+                <div class="alert alert-info" role="alert">
+                  <h1>Test de Ansiedad Zung</h1>
+                  <strong>Nota:</strong> Responde a las siguientes preguntas según como te has sentido en la última semana.
+                </div>
               </div>
               <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>Pregunta</th>
-                      <th>Casi nunca</th>
-                      <th>Alguna vez</th>
-                      <th>A menudo</th>
-                      <th>Muy a menudo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Me siento más nervioso(a) y</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me siento con miedo sin razón.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me altero o me asusta fácilmente.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me siento como si me fuera a desmayar y perder el control.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Siento que todo me está</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Mis brazos y piernas t</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me molestan dolores d</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me siento débil y me canso fácilmente.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me siento tranquil</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Puedo sentir que</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Tengo sensaciones de ahogo o falta de aire.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Siento que teng</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Mis manos, pies y piernas se me entumecen y se me ponen fríos.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me orino con mucha frecuencia.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Mis manos están usualmente secas y calientes.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Se me enrojecen la cara y las orejas con frecuencia.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                    <tr>
-                      <td>Me duermo con facilidad y descanso bien por la noche.</td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion1" name="pregunta1" value="1"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion2" name="pregunta1" value="2"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion3" name="pregunta1" value="3"></td>
-                      <td class="text-center"><input type="radio" id="pregunta1opcion4" name="pregunta1" value="4"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="text-end">
-                <button type="submit" class="btn btn-primary">Calcular</button>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Pregunta</th>
+                        <th scope="col">Nunca</th>
+                        <th scope="col">A veces</th>
+                        <th scope="col">A menudo</th>
+                        <th scope="col">Casi siempre</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let pregunta of preguntas; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ pregunta }}</td>
+                        <td>
+                          <input
+                            type="radio"
+                            id="opcion1-{{ i }}"
+                            name="pregunta{{ i }}"
+                            value="1"
+                            [(ngModel)]="respuestas[i]"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="radio"
+                            id="opcion2-{{ i }}"
+                            name="pregunta{{ i }}"
+                            value="2"
+                            [(ngModel)]="respuestas[i]"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="radio"
+                            id="opcion3-{{ i }}"
+                            name="pregunta{{ i }}"
+                            value="3"
+                            [(ngModel)]="respuestas[i]"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="radio"
+                            id="opcion4-{{ i }}"
+                            name="pregunta{{ i }}"
+                            value="4"
+                            [(ngModel)]="respuestas[i]"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-primary" routerLink="/resultados">Enviar</button>
+                  </div>
               </div>
             </form>
           </div>

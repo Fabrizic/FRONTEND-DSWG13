@@ -6,7 +6,7 @@ import { Login } from '../model/Login';
   providedIn: 'root'
 })
 export class LoginService {
-  readonly BASE_URL: string = 'https://flask-crud-backend-v2-1.onrender.com/api/v1/login';
+  readonly BASE_URL: string = 'https://flask-crud-backend-v2-1.onrender.com/login';
 
   constructor(private http: HttpClient) { }
 
