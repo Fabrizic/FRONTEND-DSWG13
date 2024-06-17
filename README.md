@@ -5,8 +5,8 @@ Este proyecto es una aplicación web desarrollada con Angular.
 ## Contribuyentes
 
 - Leiva Misari, Fabrizio
-- Quispe Rueda, Diego
-- Duran Solis, Yago
+- Quispe Rueda, Diego Kevin
+- Solis Guerrero, Yago
 
 ## Requisitos
 
@@ -22,3 +22,4 @@ Este proyecto es una aplicación web desarrollada con Angular.
 ## Uso
 
 Para iniciar el servidor de desarrollo, usa el comando `ng serve`. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos de origen.
+Escalable para ponerse en linea en cloud
