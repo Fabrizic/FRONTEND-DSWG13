@@ -38,6 +38,7 @@ export class RegistrarComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
       this.registerService.registrarRegistrar(this.registerForm.value).subscribe(
         (response: any) => {
           console.log(response);

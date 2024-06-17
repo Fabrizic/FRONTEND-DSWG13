@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -23,7 +23,7 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {
     this.loginForm = new FormGroup({
       correo: new FormControl('', Validators.required),
-      contrasena: new FormControl('', Validators.required)
+      contrasena: new FormControl('', Validators.required),
     });
   }
 
@@ -33,45 +33,55 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log(`Correo: ${this.loginForm.value.correo}, Contraseña: ${this.loginForm.value.contrasena}`);
-      this.http.post('http://127.0.0.1:5000/login', this.loginForm.value).pipe(
-        catchError((error: any) => {
-          if (error.status === 401) {
+      console.log(
+        `Correo: ${this.loginForm.value.correo}, Contraseña: ${this.loginForm.value.contrasena}`
+      );
+      this.http
+        .post('http://127.0.0.1:5000/login', this.loginForm.value)
+        .pipe(
+          catchError((error: any) => {
+            if (error.status === 401) {
+              Swal.fire({
+                title: 'Error',
+                text: 'Correo o contraseña inválidos',
+                icon: 'error',
+                confirmButtonText: 'OK',
+              });
+            } else {
+              Swal.fire({
+                title: 'Error',
+                text: 'Ocurrió un error al iniciar sesión',
+                icon: 'error',
+                confirmButtonText: 'OK',
+              });
+            }
+            throw error;
+          })
+        )
+        .subscribe((response: any) => {
+          console.log(response);
+          if (response['message'] === 'Login exitoso') {
             Swal.fire({
-              title: 'Error',
-              text: 'Correo o contraseña inválidos',
-              icon: 'error',
-              confirmButtonText: 'OK'
+              title: 'Éxito',
+              text: 'Inicio de sesión exitoso',
+              icon: 'success',
+              confirmButtonText: 'OK',
             });
+            localStorage.setItem('persona_id', JSON.stringify(response['data']['persona_id']));
+            let persona_id = localStorage.getItem('persona_id');
+  if (persona_id) {
+    console.log(JSON.parse(persona_id));
+  }
+            this.router.navigate(['/home']);
           } else {
             Swal.fire({
               title: 'Error',
-              text: 'Ocurrió un error al iniciar sesión',
+              text: response['message'],
               icon: 'error',
-              confirmButtonText: 'OK'
+              confirmButtonText: 'OK',
             });
           }
-          throw error;
-        })
-      ).subscribe((response: any) => {
-        console.log(response);
-        if (response['message'] === 'Login exitoso') {
-          Swal.fire({
-            title: 'Éxito',
-            text: 'Inicio de sesión exitoso',
-            icon: 'success',
-            confirmButtonText: 'OK'
-          });
-          this.router.navigate(['/home']);
-        } else {
-          Swal.fire({
-            title: 'Error',
-            text: response['message'],
-            icon: 'error',
-            confirmButtonText: 'OK'
-          });
-        }
-      });
+        });
     }
   }
 

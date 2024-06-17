@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../service/Test.service'; 
+import { Router } from '@angular/router'; // Import the Router module
 
 @Component({
   selector: 'app-resultados',
@@ -9,7 +10,12 @@ import { TestService } from '../service/Test.service';
 export class ResultadosComponent implements OnInit{
   respuestas: number[] = []; 
 
-  constructor(private testService: TestService) { 
+  constructor(private testService: TestService, private router: Router) { // Inject the Router module
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 
   ngOnInit(): void {

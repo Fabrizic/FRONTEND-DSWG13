@@ -13,6 +13,14 @@ import { TestService } from '../service/Test.service';
   styleUrl: './test.component.css',
 })
 export class TestComponent {
+
+  constructor(private router: Router, private testService: TestService) {} 
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
+  
   preguntas = [
     'Me siento más nervioso y ansioso de lo normal',
     'Me siento asustado sin ninguna razón',
@@ -37,8 +45,6 @@ export class TestComponent {
   ];
 
   respuestas = Array(this.preguntas.length).fill(null);
-
-  constructor(private router: Router, private testService: TestService) {} 
 
   onSubmit(): void {
     this.testService.actualizarRespuestas(this.respuestas);

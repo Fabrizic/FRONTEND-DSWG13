@@ -1,5 +1,5 @@
 export interface Registrar{
-    id: number;
+    persona_id: number;
     nombre: string;
     apellidopaterno: string;
     apellidomaterno: string;

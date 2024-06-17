@@ -1,5 +1,5 @@
 <div class="d-flex flex-column min-vh-100 bg-light text-dark font-sans">
-<header
+  <header
   class="bg-dark text-white px-4 py-2 d-flex justify-content-between align-items-center"
 >
   <div class="d-flex align-items-center">
@@ -31,36 +31,17 @@
     </svg>
     <h1 class="h4 ml-2 mb-0">SISVITA</h1>
   </div>
-  <nav class="d-none d-md-flex">
-    <a class="nav-link text-white" href="#">Inicio</a>
+  <nav class="d-none d-md-flex align-items-center justify-content-center">
+    <a class="nav-link text-white" href="home">Inicio</a>
     <a class="nav-link text-white" href="#">Chatbot</a>
-    <a class="nav-link text-white" href="#">Tests</a>
-  </nav>
-  <div class="dropdown">
-    <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" style="width: 40px; height: 40px;">
-        <path fill-rule="evenodd" d="M8 1a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm4 6a4 4 0 1 1-8 0 .918.918 0 0 1 .164-.57C4.757 6.062 6 6 6 6h4s1.243.062 1.836.43c.058.1.11.21.164.57z"/>
-      </svg>
+    <a class="nav-link text-white" href="test">Tests</a>
+    <!-- Icono de usuario -->
+    <a class="nav-link text-white" href="#"><i class="fa fa-user"></i></a>
+    <!-- Icono de cerrar sesión -->
+    <a class="nav-link text-white" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
     </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-      <a class="dropdown-item" href="#">Ver perfil</a>
-      <a class="dropdown-item" href="#">Cerrar sesión</a>
-    </div>
-  </div>
-  <button class="btn btn-outline-light d-md-none">
-    <svg
-      width="24"
-      height="24"
-      fill="currentColor"
-      class="bi bi-list"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M3.5 12.5a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9zm0-4a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9zm0-4a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1h-9z"
-      />
-    </svg>
-  </button>
+  </nav>
 </header>
 <main class="flex-fill d-flex align-items-center justify-content-center">
   <section>
