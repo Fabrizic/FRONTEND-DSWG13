@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -5,12 +6,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TestService {
-  private respuestasSource = new BehaviorSubject<number[]>([]);
-  respuestasActuales = this.respuestasSource.asObservable();
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  readonly BASE_URL: string = 'http://127.0.0.1:5000/tests';
 
-  actualizarRespuestas(respuestas: number[]): void {
-    this.respuestasSource.next(respuestas);
+  getTests() {
+    return this.http.get(this.BASE_URL);
   }
+  
 }

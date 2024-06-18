@@ -110,47 +110,14 @@
       mismo.
     </p>
     <div class="row">
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4" *ngFor="let test of tests">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Test de Personalidad</h3>
+            <h3 class="card-title">{{ test.nombre }}</h3>
             <p class="card-text">
-              Descubre tu tipo de personalidad y cómo esto influye en tu vida.
+              {{ test.descripcion }}
             </p>
-            <a href="#" class="btn btn-primary">Realizar Test</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Test de Estrés</h3>
-            <p class="card-text">
-              Evalúa tus niveles de estrés y aprende a manejarlo.
-            </p>
-            <a href="#" class="btn btn-primary">Realizar Test</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Test de Ansiedad</h3>
-            <p class="card-text">
-              Identifica y aprende a manejar tus síntomas de ansiedad.
-            </p>
-            <a href="test" class="btn btn-primary">Realizar Test</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Test de Depresión</h3>
-            <p class="card-text">
-              Evalúa tus síntomas de depresión y obtén ayuda.
-            </p>
-            <a href="#" class="btn btn-primary">Realizar Test</a>
+            <a [routerLink]="['/test']" class="btn btn-primary" (click)="guardarTestId(test.testid)">Realizar Test</a>
           </div>
         </div>
       </div>

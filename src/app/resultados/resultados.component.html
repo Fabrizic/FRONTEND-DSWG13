@@ -49,10 +49,10 @@
       <div class="card text-center shadow-lg">
         <div class="card-body" style="font-size: 2em;">
           <div class="alert alert-warning" role="alert">
-            <strong>Su resultado del test es: </strong>
+            <strong>Su resultado del test es: {{diagnostico$ | async}}</strong>
           </div>
-          <h3 class="card-title text-danger">{{getResultado()}}</h3>
-          <p class="card-text">Sobre su puntuación: {{getSumaRespuestas()}}/80</p>
+          <h3 class="card-title text-danger"></h3>
+          <p class="card-text">Sobre su puntuación:{{puntaje$ | async}}/80</p>
           <div class="d-flex justify-content-around my-3">
             <button class="btn btn-outline-info" style="width: 120%;">Sus respuestas</button>
             <button class="btn btn-outline-info" style="width: 120%;">

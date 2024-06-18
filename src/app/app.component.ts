@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, RegistrarPersonaComponent, TestComponent,RegistrarComponent],
+  imports: [RouterOutlet, RegistrarPersonaComponent,RegistrarComponent],
 })
 export class AppComponent {
   title = 'SISVITA';

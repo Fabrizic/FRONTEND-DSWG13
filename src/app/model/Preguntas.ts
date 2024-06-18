@@ -1,6 +1,10 @@
-export interface Preguntas {
+export interface Pregunta {
+    numeropregunta: number;
     preguntaid: number;
     testid: number;
     textopregunta: string;
-    numeropregunta: number;
-}
+  }
+  
+  export interface PreguntaServicio {
+    data: Pregunta[];
+  }

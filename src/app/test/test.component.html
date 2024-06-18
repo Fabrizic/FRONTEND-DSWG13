@@ -55,60 +55,30 @@
                 </div>
               </div>
               <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Pregunta</th>
-                        <th scope="col">Nunca</th>
-                        <th scope="col">A veces</th>
-                        <th scope="col">A menudo</th>
-                        <th scope="col">Casi siempre</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let pregunta of preguntas; let i = index">
-                        <th scope="row">{{ i + 1 }}</th>
-                        <td>{{ pregunta }}</td>
-                        <td>
-                          <input
-                            type="radio"
-                            id="opcion1-{{ i }}"
-                            name="pregunta{{ i }}"
-                            value="1"
-                            [(ngModel)]="respuestas[i]"
-                          />
-                        </td>
-                        <td>
-                          <input
-                            type="radio"
-                            id="opcion2-{{ i }}"
-                            name="pregunta{{ i }}"
-                            value="2"
-                            [(ngModel)]="respuestas[i]"
-                          />
-                        </td>
-                        <td>
-                          <input
-                            type="radio"
-                            id="opcion3-{{ i }}"
-                            name="pregunta{{ i }}"
-                            value="3"
-                            [(ngModel)]="respuestas[i]"
-                          />
-                        </td>
-                        <td>
-                          <input
-                            type="radio"
-                            id="opcion4-{{ i }}"
-                            name="pregunta{{ i }}"
-                            value="4"
-                            [(ngModel)]="respuestas[i]"
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Pregunta</th>
+                      <th *ngFor="let respuesta of respuestas; index as j" scope="col">{{ respuesta?.textorespuesta }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pregunta of preguntas; index as i">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>{{ pregunta?.textopregunta }}</td>
+                      <td *ngFor="let respuesta of respuestas; index as j">
+                        <input
+                          type="radio"
+                          id="respuesta{{ j }}-pregunta{{ i}}"
+                          name="pregunta{{ i}}"
+                          value="{{ respuesta?.respuestaid }}"
+                          [(ngModel)]="respuestasSeleccionadas[i]"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                   <div class="d-flex justify-content-center mt-3">
                     <button type="submit" class="btn btn-primary" routerLink="/resultados">Enviar</button>
                   </div>
