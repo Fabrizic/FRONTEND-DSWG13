@@ -42,67 +42,76 @@
     </a>
   </nav>
 </header>
-<main class="flex-grow-1">
-  <section id="tests" class="bg-light py-5 px-3 px-md-5">
+<section class="bg-light py-5">
+  <div class="container text-center">
+    <h2 class="display-4 font-weight-bold" style="font-family: 'Segoe UI'">
+      Bienvenido a SISVITA
+    </h2>
+    <hr />
+    <p class="lead mb-4" style="font-family: sans-serif">
+      Somos una plataforma dedicada a brindar servicios psicológicos de alta
+      calidad. Nuestro objetivo es ayudarte a mejorar tu bienestar mental y
+      emocional.
+    </p>
+  </div>
+</section>
+<section class="bg-light py-5">
     <div class="container">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <form class="space-y-4" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-              <div class="alert alert-info" role="alert">
-                <h1 *ngIf="testid == 1">Test de Ansiedad Zung</h1>
-                <h1 *ngIf="testid == 4">Test de Depresión</h1>
-                <strong>Nota:</strong> Responde a las siguientes preguntas según
-                como te has sentido en la última semana.
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Pregunta</th>
-                    <th
-                      *ngFor="let respuesta of respuestas; index as j"
-                      scope="col"
-                    >
-                      {{ respuesta?.textorespuesta }}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let pregunta of preguntas; index as i">
-                    <th scope="row">{{ i + 1 }}</th>
-                    <td>{{ pregunta?.textopregunta }}</td>
-                    <td *ngFor="let respuesta of respuestas; index as j">
-                      <input
-                        class="large-radio"
-                        type="radio"
-                        id="respuesta{{ j }}-pregunta{{ i }}"
-                        name="pregunta{{ i }}"
-                        value="{{ respuesta?.respuestaid }}"
-                        [(ngModel)]="respuestasSeleccionadas[i]"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="d-flex justify-content-center mt-3">
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  routerLink="/resultados"
-                >
-                  Enviar
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+      <h2 class="display-4 text-center mb-4 font-weight-bold" style="font-family: 'Segoe UI'">
+        Resultados
+      </h2>
+      <p class="lead text-center mb-5" style="font-family: sans-serif">
+        Aquí puedes ver los resultados de tus tests.
+      </p>
+      <!-- Aquí puedes agregar el código para mostrar los resultados -->
+      <div class="d-flex justify-content-center">
+        <a routerLink="/verResultados" class="btn btn-primary btn-lg">Ver Resultados</a>
       </div>
     </div>
   </section>
-</main>
+  
+  <!-- Sección de Personas -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="display-4 text-center mb-4 font-weight-bold" style="font-family: 'Segoe UI'">
+        Personas
+      </h2>
+      <p class="lead text-center mb-5" style="font-family: sans-serif">
+        Conoce a las personas que forman parte de nuestra comunidad.
+      </p>
+      <!-- Aquí puedes agregar el código para mostrar las personas -->
+      <div class="d-flex justify-content-center">
+        <a routerLink="verPersonas" class="btn btn-primary btn-lg">Ver Personas</a>
+      </div>
+    </div>
+  </section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2
+      class="display-4 text-center mb-4 font-weight-bold"
+      style="font-family: 'Segoe UI'"
+    >
+      Tests
+    </h2>
+    <p class="lead text-center mb-5" style="font-family: sans-serif">
+      Explora nuestra sección de tests psicológicos y descubre más sobre ti
+      mismo.
+    </p>
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let test of tests">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{ test.nombre }}</h3>
+            <p class="card-text">
+              {{ test.descripcion }}
+            </p>
+            <a [routerLink]="['/test']" class="btn btn-primary" (click)="guardarTestId(test.testid)">Realizar Test</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <footer
   class="bg-dark text-white py-3 px-4 d-flex align-items-center justify-content-between"
 >

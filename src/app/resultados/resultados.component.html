@@ -48,18 +48,21 @@
     <div class="container mt-5" style="width: 120%;">
       <div class="card text-center shadow-lg">
         <div class="card-body" style="font-size: 2em;">
-          <div class="alert alert-warning" role="alert">
-            <strong>Su resultado del test es: {{diagnostico$ | async}}</strong>
+          <div *ngIf="isLoading">Cargando...</div>
+          <div *ngIf="!isLoading">
+            <div class="alert alert-warning" role="alert">
+              <strong>Su resultado del test es: <br>{{diagnostico}}</strong>
+            </div>
+            <h3 class="card-title text-danger"></h3>
+            <p class="card-text">Sobre su puntuación: {{puntaje}}/80</p>
+            <div class="d-flex justify-content-around my-3">
+              <button class="btn btn-outline-info" style="width: 120%;">Sus respuestas</button>
+              <button class="btn btn-outline-info" style="width: 120%;">
+                <a href="/home" style="color: inherit; text-decoration: none;">Menú principal</a>
+              </button>
+            </div>
+            <button class="btn btn-danger" style="width: 90%;">Contactar a un profesional</button>
           </div>
-          <h3 class="card-title text-danger"></h3>
-          <p class="card-text">Sobre su puntuación:{{puntaje$ | async}}/80</p>
-          <div class="d-flex justify-content-around my-3">
-            <button class="btn btn-outline-info" style="width: 120%;">Sus respuestas</button>
-            <button class="btn btn-outline-info" style="width: 120%;">
-              <a href="/home" style="color: inherit; text-decoration: none;">Menú principal</a>
-            </button>
-          </div>
-          <button class="btn btn-danger" style="width: 90%;">Contactar a un profesional</button>
         </div>
       </div>
     </div>

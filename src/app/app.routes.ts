@@ -5,10 +5,12 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { TestComponent } from './test/test.component';
 import { RegistrarPersonaComponent } from './registrar-persona/registrar-persona.component';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { HomePsychologistComponent } from './home-psychologist/home-psychologist.component';
 
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'home-psychologist', component: HomePsychologistComponent},
   { path: 'registrar', component: RegistrarComponent },
   { path: 'test', component: TestComponent },
   { path: 'resultados', component: ResultadosComponent},

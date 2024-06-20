@@ -8,11 +8,12 @@ import { Pregunta } from '../model/Preguntas'; // Asegúrate de que esta ruta es
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ObtenerRespuestasService } from '../service/ObtenerRespuestas.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NgFor ],
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css'],
 })
@@ -20,6 +21,9 @@ export class TestComponent implements OnInit {
   preguntas: Pregunta[] = [];
   respuestas: (Respuestas | null)[] = [];
   respuestasSeleccionadas = [];
+  testid: number | null = null;
+  cantidadPreguntas: number = 0;
+
   constructor(
     private router: Router,
     private preguntasService: PreguntasService,
@@ -28,16 +32,17 @@ export class TestComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const testid = localStorage.getItem('testid');
+    this.testid = Number(localStorage.getItem('testid'));
 
-    this.preguntasService.getPreguntas(Number(testid)).subscribe((respuesta: any) => {
+    this.preguntasService.getPreguntas(this.testid).subscribe((respuesta: any) => {
       this.preguntas = respuesta.data;
+      this.cantidadPreguntas = this.preguntas.length;
       console.log(this.preguntas);
     }, (error: any) => {
       console.error(error);
     });
   
-    this.respuestasService.getRespuestas(Number(testid)).subscribe((respuesta: any) => {
+    this.respuestasService.getRespuestas(this.testid).subscribe((respuesta: any) => {
       this.respuestas = respuesta.data;
       console.log(this.respuestas);
     }, (error: any) => {
@@ -53,10 +58,18 @@ export class TestComponent implements OnInit {
   onSubmit(): void {
     console.log(this.respuestasSeleccionadas);
     if (
-      this.respuestasSeleccionadas.length === 20 &&
+      this.respuestasSeleccionadas.length === this.cantidadPreguntas &&
       !this.respuestas.includes(null)
     ) {
-      this.obtenerRespuestasService.cambiarRespuestas(this.respuestasSeleccionadas);
+
+      let respuestasParaEnviar = this.preguntas.map((pregunta, index) => {
+        return {
+          preguntaid: pregunta.preguntaid,
+          respuestaid: this.respuestasSeleccionadas[index]
+        };
+      });
+      console.log(respuestasParaEnviar);
+      this.obtenerRespuestasService.cambiarRespuestas(respuestasParaEnviar);
       this.router.navigate(['/resultados']);
     } else {
       Swal.fire({
