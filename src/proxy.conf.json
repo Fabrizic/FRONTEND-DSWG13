@@ -1,6 +1,6 @@
 {
     "/api1": {
-      "target": "https://sysvita-dswg13.onrender.com/login",
+      "target": "http://127.0.0.1:5000/login",
       "secure": false,
       "changeOrigin": true,
       "pathRewrite": {
