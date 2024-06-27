@@ -77,6 +77,13 @@ export class LoginComponent implements OnInit{
         .subscribe((response: any) => {
           console.log(response);
           if (response['message'] === 'Login exitoso') {
+            let ruta =  '/home'
+            if(response['data']['tipousuarioid']==1){
+              ruta = '/home';
+
+            }else if(response['data']['tipousuarioid']==2){
+                ruta = '/home-psychologist';
+              }
             Swal.fire({
               title: 'Éxito',
               text: 'Inicio de sesión exitoso',
@@ -86,13 +93,6 @@ export class LoginComponent implements OnInit{
             localStorage.setItem('persona_id', JSON.stringify(response['data']['persona_id']));
             localStorage.setItem('tipousuarioid', JSON.stringify(response['data']['tipousuarioid']));
             let persona_id = localStorage.getItem('persona_id');
-            let tipousuarioid = localStorage.getItem('tipousuarioid');
-            if(tipousuarioid == '2'){
-              this.router.navigate(['home-psychologist']);
-            }
-            else{
-              this.router.navigate(['home']);
-            }
           } else {
             Swal.fire({
               title: 'Error',
