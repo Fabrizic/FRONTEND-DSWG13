@@ -33,6 +33,7 @@ export class RegistrarComponent implements OnInit {
       fechanacimiento: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
+      tipousuarioid: 1
     });
   }
 

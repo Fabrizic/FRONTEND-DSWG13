@@ -1,0 +1,26 @@
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff; /* Asegúrate de que el color de fondo coincida con tu diseño */
+    border: 1px solid #ced4da; /* Ajusta el color del borde según sea necesario */
+  }
+  
+  .select-wrapper select {
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px; /* Ajusta según el tamaño de tu icono */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Elimina el borde si es necesario */
+  }
+  
+  .select-wrapper i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1; /* Asegúrate de que el icono esté sobre el select */
+  }

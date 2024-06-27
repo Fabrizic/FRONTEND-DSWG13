@@ -3,4 +3,5 @@ export interface Login{
     persona_id: number;
     correo: string;
     contrasena: string;
+    tipo_usuario_id: number;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,44 +6,45 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LoginService } from '../service/Login.service';
+import { TipoUsuarioService } from '../service/TipoUsuario.service';
+import { CommonModule } from '@angular/common';
+import { TipoUsuario } from '../model/Tipo_usuario';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  loginFormUser: FormGroup;
-  loginFormPsychologist: FormGroup;
+export class LoginComponent implements OnInit{
+  loginForm: FormGroup
+  tiposUsuario: TipoUsuario[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.loginFormUser = new FormGroup({
+  constructor(private loginService: LoginService, private tipoUsuario: TipoUsuarioService, private http: HttpClient, private router: Router) {
+    this.loginForm = new FormGroup({
       correo: new FormControl('', Validators.required),
       contrasena: new FormControl('', Validators.required),
-    });
-
-    this.loginFormPsychologist = new FormGroup({
-      correo: new FormControl('', Validators.required),
-      contrasena: new FormControl('', Validators.required),
+      tipousuarioid: new FormControl('', Validators.required),
     });
   }
 
   ngOnInit() {
     this.getValues();
+    this.getTipoUsuario();
   }
 
-  onSubmitUser() {
-    if (this.loginFormUser.valid) {
+  onSubmit() {
+    if (this.loginForm.valid) {
 
        const data = {
-        correo: this.loginFormUser.value.correo,
-        contrasena: this.loginFormUser.value.contrasena,
-        tipousuarioid: 1,
+        correo: this.loginForm.value.correo,
+        contrasena: this.loginForm.value.contrasena,
+        tipousuarioid: this.loginForm.value.tipousuarioid,
       };
 
       console.log(
@@ -83,11 +84,15 @@ export class LoginComponent {
               confirmButtonText: 'OK',
             });
             localStorage.setItem('persona_id', JSON.stringify(response['data']['persona_id']));
+            localStorage.setItem('tipousuarioid', JSON.stringify(response['data']['tipousuarioid']));
             let persona_id = localStorage.getItem('persona_id');
-            if (persona_id) {
-              console.log(JSON.parse(persona_id));
+            let tipousuarioid = localStorage.getItem('tipousuarioid');
+            if(tipousuarioid == '2'){
+              this.router.navigate(['home-psychologist']);
             }
-            this.router.navigate(['/home']);
+            else{
+              this.router.navigate(['home']);
+            }
           } else {
             Swal.fire({
               title: 'Error',
@@ -100,72 +105,17 @@ export class LoginComponent {
     }
   }
 
-  onSubmitPsychologist() {
-    if (this.loginFormPsychologist.valid) {
-
-      const data = {
-       correo: this.loginFormPsychologist.value.correo,
-       contrasena: this.loginFormPsychologist.value.contrasena,
-       tipousuarioid: 2,
-     };
-
-     console.log(
-       `Correo: ${data.correo}, Contraseña: ${data.contrasena}, TipoUsuarioID: ${data.tipousuarioid}`
-     );
-
-     
-     this.http
-       .post('http://127.0.0.1:5000/login', data)
-       .pipe(
-         catchError((error: any) => {
-           if (error.status === 401) {
-             Swal.fire({
-               title: 'Error',
-               text: 'Correo o contraseña inválidos',
-               icon: 'error',
-               confirmButtonText: 'OK',
-             });
-           } else {
-             Swal.fire({
-               title: 'Error',
-               text: 'Ocurrió un error al iniciar sesión',
-               icon: 'error',
-               confirmButtonText: 'OK',
-             });
-           }
-           throw error;
-         })
-       )
-       .subscribe((response: any) => {
-         console.log(response);
-         if (response['message'] === 'Login exitoso') {
-           Swal.fire({
-             title: 'Éxito',
-             text: 'Inicio de sesión exitoso',
-             icon: 'success',
-             confirmButtonText: 'OK',
-           });
-           localStorage.setItem('persona_id', JSON.stringify(response['data']['persona_id']));
-           let persona_id = localStorage.getItem('persona_id');
-           if (persona_id) {
-             console.log(JSON.parse(persona_id));
-           }
-           this.router.navigate(['/home-psychologist']);
-         } else {
-           Swal.fire({
-             title: 'Error',
-             text: response['message'],
-             icon: 'error',
-             confirmButtonText: 'OK',
-           });
-         }
-       });
-   }
-  }
-
   getValues() {
-    this.http.get('http://127.0.0.1:5000/login').subscribe((response: any) => {
+    this.loginService.getLogin().subscribe((response: any) => {
       console.log(response);
     });
   }
+
+  getTipoUsuario() {
+    this.tipoUsuario.getTipoUsuarios().subscribe((response: any) => {
+      console.log(response);
+      this.tiposUsuario = response.data;
+    });
+  }
+  
 }

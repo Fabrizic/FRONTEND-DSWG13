@@ -26,7 +26,6 @@ export class HomePsychologistComponent implements OnInit{
     localStorage.setItem('testid', testid.toString());
   }
   
-  
   logout() {
     localStorage.clear();
     this.router.navigate(['']);
