@@ -42,39 +42,61 @@
     </a>
   </nav>
 </header>
-<section style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin: 20px;">
-  <div class="table-responsive" style="max-width: 90%; margin-bottom: 20px;">
-    <h2 class="text-center mb-4">Resultados</h2>
-    <table class="table table-hover shadow rounded vertical-borders">
-      <thead class="thead-dark">
-        <tr>
-          <th class="text-center">ID</th>
-          <th class="text-center">Fecha</th>
-          <th class="text-center">Nombre</th>
-          <th class="text-center">Apellido Paterno</th>
-          <th class="text-center">Apellido Materno</th>
-          <th class="text-center">Test</th>
-          <th class="text-center">Diagnóstico</th>
-          <th class="text-center">Color</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let diagnostico of diagnosticos" (click)="onRowClick(diagnostico)">
-          <td class="text-center">{{ diagnostico.diagnosticoid }}</td>
-          <td class="text-center">{{ diagnostico.fecha }}</td>
-          <td class="text-center">{{ diagnostico.nombre }}</td>
-          <td class="text-center">{{ diagnostico.apellidopaterno }}</td>
-          <td class="text-center">{{ diagnostico.apellidomaterno }}</td>
-          <td class="text-center">{{ diagnostico.test }}</td>
-          <td class="text-center">{{ diagnostico.diagnostico }}</td>
-          <td style="display: flex; justify-content: center; align-items: center; height: 100%;">
-            <div [style.background-color]="diagnostico.color" style="width: 24px; height: 24px; border-radius: 50%"></div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<section class="bg-light py-5">
+  <div class="container text-center">
+    <h2 class="display-4 font-weight-bold" style="font-family: 'Segoe UI'">
+      Bienvenido a SISVITA
+    </h2>
+    <hr />
+    <p class="lead mb-4" style="font-family: sans-serif">
+      Somos una plataforma dedicada a brindar servicios psicológicos de alta
+      calidad. Nuestro objetivo es ayudarte a mejorar tu bienestar mental y
+      emocional.
+    </p>
   </div>
-  <div id="miMapa"></div> 
+</section>
+  
+  <!-- Sección de Personas -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="display-4 text-center mb-4 font-weight-bold" style="font-family: 'Segoe UI'">
+        Personas
+      </h2>
+      <p class="lead text-center mb-5" style="font-family: sans-serif">
+        Conoce a las personas que forman parte de nuestra comunidad.
+      </p>
+      <!-- Aquí puedes agregar el código para mostrar las personas -->
+      <div class="d-flex justify-content-center">
+        <a routerLink="ver-personas" class="btn btn-primary btn-lg">Ver Personas</a>
+      </div>
+    </div>
+  </section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2
+      class="display-4 text-center mb-4 font-weight-bold"
+      style="font-family: 'Segoe UI'"
+    >
+      Tests
+    </h2>
+    <p class="lead text-center mb-5" style="font-family: sans-serif">
+      Explora nuestra sección de tests psicológicos y descubre más sobre ti
+      mismo.
+    </p>
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let test of tests">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{ test.nombre }}</h3>
+            <p class="card-text">
+              {{ test.descripcion }}
+            </p>
+            <a [routerLink]="['/test']" class="btn btn-primary" (click)="guardarTestId(test.testid)">Realizar Test</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <footer
   class="bg-dark text-white py-3 px-4 d-flex align-items-center justify-content-between"

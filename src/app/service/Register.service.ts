@@ -28,4 +28,8 @@ export class RegistrarService {
       body: Registrar,
     });
   }
+
+  getPersonaById(persona_id: number) {
+    return this.http.get(`${this.BASE_URL}/persona/${persona_id}`);
+  }
 }

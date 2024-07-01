@@ -5,16 +5,16 @@ import { CommonModule } from '@angular/common';
 import { TestService } from '../service/Test.service';
 
 @Component({
-  selector: 'app-home-psychologist',
+  selector: 'app-home-admin',
   standalone: true,
   imports: [FormsModule, CommonModule, RouterModule],
-  templateUrl: './home-psychologist.component.html',
-  styleUrl: './home-psychologist.component.css'
+  templateUrl: './home-admin.component.html',
+  styleUrls: ['./home-admin.component.css']
 })
-export class HomePsychologistComponent implements OnInit{
+export class HomeAdminComponent implements OnInit {
   tests: any[] = [];
 
-  constructor(private router: Router, private testService: TestService) {}
+  constructor(private router: Router, private testService: TestService) { }
 
   ngOnInit() {
     this.testService.getTests().subscribe((data: any) => {

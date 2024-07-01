@@ -51,6 +51,33 @@
                     <label for="dob">Fecha de Nacimiento</label>
                     <input type="date" class="form-control" id="dob" formControlName="fechanacimiento">
                   </div>
+                  <div class="form-group col-md-4">
+                    <label for="departamento">Departamento</label>
+                    <div class="select-wrapper">
+                      <select class="form-control" id="departamento" formControlName="departamento">
+                        <option *ngFor="let departamento of departamentos" [value]="departamento.departamento">{{departamento.departamento}}</option>
+                      </select>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="provincia">Provincia</label>
+                    <div class="select-wrapper">
+                      <select class="form-control" id="provincia" formControlName="provincia" (change)="onProvinciaChange()">
+                        <option *ngFor="let provincia of provincias" [value]="provincia.provincia">{{provincia.provincia}}</option>
+                      </select>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="distrito">Distrito</label>
+                    <div class="select-wrapper">
+                      <select class="form-control" id="distrito" formControlName="distrito" (change)="onDistritoChange()">
+                        <option *ngFor="let distrito of distritos" [value]="distrito.distrito">{{distrito.distrito}}</option>
+                      </select>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="email">Correo Electrónico</label>

@@ -1,0 +1,20 @@
+/* Aplica bordes derechos a todas las celdas excepto a las últimas de cada fila */
+.vertical-borders td, .vertical-borders th {
+    border-right: 1px solid #010912; /* Usa el color de borde que prefieras */
+}
+
+.vertical-borders td:last-child, .vertical-borders th:last-child {
+    border-right: none; /* Elimina el borde derecho para la última celda de cada fila */
+}
+
+#miMapa {
+    height: 70vh; /* El mapa ocupará el 90% de la altura de la ventana del navegador */
+    width: 70%; /* Ajusta el ancho a 80% */
+    border: 2px solid #3872b3;
+    box-shadow: 0 0 8px #888;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 10px; /* Espacio arriba del mapa */
+    margin-bottom: 20px; /* Espacio abajo del mapa */
+    margin-left: auto; /* Centra el mapa horizontalmente */
+    margin-right: auto; /* Centra el mapa horizontalmente */
+}

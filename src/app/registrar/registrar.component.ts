@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RegistrarService } from '../service/Register.service';
+import { UbigeoService } from '../service/Ubigeo.service';
 import { Router } from '@angular/router'; 
 @Component({
   selector: 'app-registrar',
@@ -18,22 +19,38 @@ import { Router } from '@angular/router';
 })
 export class RegistrarComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
+  departamentos: any[] = [];
+  provincias: any[] = [];
+  distritos: any[] = [];
 
   constructor(
     private registerService: RegistrarService,
     private formBuilder: FormBuilder,
-    private router: Router 
+    private router: Router,
+    private ubigeoService: UbigeoService
   ) {}
 
   ngOnInit(): void {
+    this.getDepartamento();
     this.registerForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellidopaterno: ['', Validators.required],
       apellidomaterno: ['', Validators.required],
       fechanacimiento: ['', Validators.required],
+      departamento: ['', Validators.required],
+      provincia: ['', Validators.required],
+      distrito: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
       tipousuarioid: 1
+    });
+
+    this.registerForm.get('departamento')?.valueChanges.subscribe(() => {
+      this.onProvinciaChange();
+    });
+    
+    this.registerForm.get('provincia')?.valueChanges.subscribe(() => {
+      this.onDistritoChange();
     });
   }
 
@@ -55,5 +72,48 @@ export class RegistrarComponent implements OnInit {
     } else {
       Swal.fire('Advertencia', 'Por favor, completa todos los campos', 'warning');
     }
+  }
+
+  getDepartamento(): void {
+    this.ubigeoService.getDepartamento().subscribe(
+      (response: any) => {
+        this.departamentos = response.data;
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onProvinciaChange(): void {
+    const departamento = this.registerForm.get('departamento')?.value;
+    if (!departamento) return; // Asegúrate de que el departamento tenga un valor antes de continuar
+  
+    this.ubigeoService.getProvincia(departamento).subscribe(
+      (response: any) => {
+        this.provincias = response.data;
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onDistritoChange(): void {
+    const departamento = this.registerForm.get('departamento')?.value;
+    const provincia = this.registerForm.get('provincia')?.value;
+    if (!provincia && !departamento) return;
+    
+    this.ubigeoService.getDistrito(provincia, departamento).subscribe(
+      (response: any) => {
+        this.distritos = response.data;
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 }

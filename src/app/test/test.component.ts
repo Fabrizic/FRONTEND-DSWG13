@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ObtenerRespuestasService } from '../service/ObtenerRespuestas.service';
 import { NgFor } from '@angular/common';
+import { TestService } from '../service/Test.service';
 
 @Component({
   selector: 'app-test',
@@ -23,16 +24,22 @@ export class TestComponent implements OnInit {
   respuestasSeleccionadas = [];
   testid: number | null = null;
   cantidadPreguntas: number = 0;
+  tests: any[] = [];
 
   constructor(
     private router: Router,
     private preguntasService: PreguntasService,
     private respuestasService: RespuestasService,
-    private obtenerRespuestasService: ObtenerRespuestasService
+    private obtenerRespuestasService: ObtenerRespuestasService,
+    private testService: TestService
   ) {}
 
   ngOnInit() {
     this.testid = Number(localStorage.getItem('testid'));
+
+    this.testService.getTests().subscribe((data: any) => {
+      this.tests = data.data;
+    });
 
     this.preguntasService.getPreguntas(this.testid).subscribe((respuesta: any) => {
       this.preguntas = respuesta.data;
@@ -78,5 +85,14 @@ export class TestComponent implements OnInit {
         text: 'Por favor, responde a todas las preguntas antes de continuar.',
       });
     }
+  }
+
+  getTestName(testid: number): string {
+    for (let test of this.tests) {
+      if (test.testid === testid) {
+        return test.nombre;
+      }
+    }
+    return 'None';
   }
 }

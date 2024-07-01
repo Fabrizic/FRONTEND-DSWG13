@@ -50,8 +50,7 @@
           <form class="space-y-4" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <div class="alert alert-info" role="alert">
-                <h1 *ngIf="testid == 1">Test de Ansiedad Zung</h1>
-                <h1 *ngIf="testid == 4">Test de Depresión</h1>
+                <h1> {{getTestName(testid ?? 0) }} </h1>
                 <strong>Nota:</strong> Responde a las siguientes preguntas según
                 como te has sentido en la última semana.
               </div>

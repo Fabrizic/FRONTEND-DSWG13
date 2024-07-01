@@ -83,6 +83,8 @@ export class LoginComponent implements OnInit{
 
             }else if(response['data']['tipousuarioid']==2){
                 ruta = '/home-psychologist';
+              } else if(response['data']['tipousuarioid']==3){
+                ruta = '/home-admin';
               }
             Swal.fire({
               title: 'Éxito',
@@ -93,6 +95,8 @@ export class LoginComponent implements OnInit{
             localStorage.setItem('persona_id', JSON.stringify(response['data']['persona_id']));
             localStorage.setItem('tipousuarioid', JSON.stringify(response['data']['tipousuarioid']));
             let persona_id = localStorage.getItem('persona_id');
+            console.log(persona_id);
+            this.router.navigate([ruta]);
           } else {
             Swal.fire({
               title: 'Error',
