@@ -9,6 +9,8 @@ import { HomePsychologistComponent } from './home-psychologist/home-psychologist
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { VerPersonasComponent } from './ver-personas/ver-personas.component';
 import { VerResultadosComponent } from './ver-resultados/ver-resultados.component';
+import { ObservacionComponent } from './observacion/observacion.component';
+import { AgregarTestComponent } from './agregar-test/agregar-test.component';
 
 
 export const routes: Routes = [
@@ -17,6 +19,8 @@ export const routes: Routes = [
   { path: 'home-admin', component: HomeAdminComponent},
   { path: 'ver-personas', component: VerPersonasComponent},
   { path: 'ver-resultados', component: VerResultadosComponent},
+  { path: 'observacion/:diagnosticoid', component: ObservacionComponent},
+  { path: 'agregar-test', component: AgregarTestComponent},
   { path: 'registrar', component: RegistrarComponent },
   { path: 'test', component: TestComponent },
   { path: 'resultados', component: ResultadosComponent},

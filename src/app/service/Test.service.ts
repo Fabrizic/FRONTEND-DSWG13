@@ -13,5 +13,9 @@ export class TestService {
   getTests() {
     return this.http.get(this.BASE_URL);
   }
+
+  postTest(form: any) {
+    return this.http.post(this.BASE_URL, form);
+  }
   
 }

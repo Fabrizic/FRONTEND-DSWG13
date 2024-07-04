@@ -29,4 +29,8 @@ readonly BASE_URL: string = 'http://127.0.0.1:5000';
   getUbigeoById(ubigeoid: number) {
     return this.http.get(this.BASE_URL + '/ubigeo/' + ubigeoid);
   }
+
+  getCirculos() {
+    return this.http.get(this.BASE_URL + '/circulos');
+  }
 }

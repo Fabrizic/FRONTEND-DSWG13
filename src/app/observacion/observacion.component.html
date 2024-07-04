@@ -1,0 +1,176 @@
+<header
+  class="bg-dark text-white px-4 py-2 d-flex justify-content-between align-items-center"
+>
+  <div class="d-flex align-items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="h-6 w-6 mr-2"
+    >
+      <path
+        d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+      ></path>
+      <path
+        d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+      ></path>
+      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+      <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+      <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+      <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+      <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+      <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+    </svg>
+    <h1 class="h4 ml-2 mb-0">SISVITA</h1>
+  </div>
+  <nav class="d-none d-md-flex align-items-center justify-content-center">
+    <a class="nav-link text-white" href="home-psychologist">Inicio</a>
+    <a class="nav-link text-white" href="#">Chatbot</a>
+    <a class="nav-link text-white" href="home-psychologist">Tests</a>
+    <!-- Icono de usuario -->
+    <a class="nav-link text-white" href="#"><i class="fa fa-user"></i></a>
+    <!-- Icono de cerrar sesión -->
+    <a class="nav-link text-white" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </a>
+  </nav>
+</header>
+<main class="container mt-4">
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <h2 class="mt-4 mb-5">Información del Diagnóstico</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <p class="mb-2">
+        <strong>Nombre:</strong> {{ diagnostico.data?.nombre }}
+        {{ diagnostico.data?.apellidopaterno }}
+        {{ diagnostico.data?.apellidomaterno }}
+      </p>
+      <p class="mb-2"><strong>Edad:</strong> {{ diagnostico.data?.edad }}</p>
+      <p class="mb-2">
+        <strong>Departamento:</strong> {{ diagnostico.data?.departamento }}
+      </p>
+      <p class="mb-2">
+        <strong>Provincia:</strong> {{ diagnostico.data?.provincia }}
+      </p>
+      <p class="mb-2">
+        <strong>Distrito:</strong> {{ diagnostico.data?.distrito }}
+      </p>
+      <p class="mb-2">
+        <strong>Correo Electrónico:</strong> {{ diagnostico.data?.correo }}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p class="mb-2">
+        <strong>Fecha del Diagnóstico:</strong>
+        {{ diagnostico.data?.fecha }}
+      </p>
+      <p class="mb-2">
+        <strong>Test Realizado:</strong> {{ diagnostico.data?.test_nombre }}
+      </p>
+      <p class="mb-2">
+        <strong>Diagnostico:</strong> {{ diagnostico.data?.diagnostico }}
+      </p>
+      <p class="mb-2">
+        <strong>Puntaje:</strong> {{ diagnostico.data?.puntaje }}
+      </p>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <h2 class="mt-4 mb-5">Respuestas del usuario</h2>
+  </div>
+  <div *ngIf="preguntasYRespuestas && preguntasYRespuestas.length > 0">
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="
+              let preguntaRespuesta of preguntasYRespuestas;
+              let i = index
+            "
+          >
+            <strong>Pregunta {{ i + 1 }}:</strong>
+            {{ preguntaRespuesta.textopregunta }}<br />
+            <strong style="color: brown">Respuesta:</strong>
+            {{ preguntaRespuesta.textorespuesta }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!preguntasYRespuestas || preguntasYRespuestas.length === 0">
+    <p>No hay respuestas disponibles.</p>
+  </div>
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <h2 class="mt-4 mb-5">Agregar observación y recomendación</h2>
+  </div>
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <div class="col-md-8">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group">
+          <label for="observacionTextArea">Observación</label>
+          <textarea class="form-control" id="observacionTextArea" rows="3" [(ngModel)]="observacion" name="observacion" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="recomendacionTextArea">Recomendación</label>
+          <textarea class="form-control" id="recomendacionTextArea" rows="3" [(ngModel)]="recomendacion" name="recomendacion" required></textarea>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+          <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+        </div>
+        <div class="d-flex justify-content-center mb-5"> 
+          <button type="button" class="btn btn-secondary" (click)="regresar()">Regresar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<footer
+  class="bg-dark text-white py-3 px-4 d-flex align-items-center justify-content-between"
+>
+  <div class="d-flex align-items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="me-2"
+    >
+      <path
+        d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+      ></path>
+      <path
+        d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+      ></path>
+      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path>
+      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path>
+      <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path>
+      <path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path>
+      <path d="M19.938 10.5a4 4 0 0 1 .585.396"></path>
+      <path d="M6 18a4 4 0 0 1-1.967-.516"></path>
+      <path d="M19.967 17.484A4 4 0 0 1 18 18"></path>
+    </svg>
+    <span class="text-sm">© 2024 SISVITA. Todos los derechos reservados.</span>
+  </div>
+  <nav class="d-none d-md-flex align-items-center gap-3">
+    <a class="text-sm text-white text-decoration-none" href="#"
+      >Términos y Condiciones</a
+    >
+    <a class="text-sm text-white text-decoration-none" href="#"
+      >Política de Privacidad</a
+    >
+  </nav>
+</footer>

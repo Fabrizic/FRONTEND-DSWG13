@@ -33,7 +33,7 @@
   <nav class="d-none d-md-flex align-items-center justify-content-center">
     <a class="nav-link text-white" href="home-psychologist">Inicio</a>
     <a class="nav-link text-white" href="#">Chatbot</a>
-    <a class="nav-link text-white" href="test">Tests</a>
+    <a class="nav-link text-white" href="home-psychologist">Tests</a>
     <!-- Icono de usuario -->
     <a class="nav-link text-white" href="#"><i class="fa fa-user"></i></a>
     <!-- Icono de cerrar sesión -->
@@ -76,12 +76,15 @@
       class="display-4 text-center mb-4 font-weight-bold"
       style="font-family: 'Segoe UI'"
     >
-      Tests
+      Agregar test
     </h2>
     <p class="lead text-center mb-5" style="font-family: sans-serif">
       Explora nuestra sección de tests psicológicos y descubre más sobre ti
       mismo.
     </p>
+    <div class="text-center mb-5">
+      <a [routerLink]="['/agregar-test']" class="btn btn-success btn-lg rounded-pill">Agregar Test</a>
+    </div>
     <div class="row">
       <div class="col-md-6 mb-4" *ngFor="let test of tests">
         <div class="card">

@@ -12,4 +12,5 @@ export class ResultadoService {
   getResultado(): Observable<any> {
     return this.http.get(this.BASE_URL);
   }
+  
 } 

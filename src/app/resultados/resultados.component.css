@@ -33,3 +33,41 @@
     border-color: #ff6b6b;
     margin-top: 20px;
   }
+
+  .modal-dialog {
+    /* Ajusta el ancho del modal */
+    max-width: 80%; /* O el ancho que prefieras */
+    margin: 100px auto; /* Centra el modal vertical y horizontalmente */
+    max-height: 80vh; /* Ajusta la altura máxima del modal */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    /* Permite el desplazamiento si el contenido es muy largo */
+    overflow-y: auto;
+    flex: 1;
+  }
+  
+  /* Estilo opcional para mejorar la apariencia del modal */
+  .modal-header, .modal-footer {
+    border: none; /* Elimina los bordes por defecto */
+  }
+  
+  .modal-title {
+    color: #007bff; /* Cambia el color del título, ajusta según tu preferencia */
+  }
+  
+  .close {
+    opacity: 1; /* Hace que el botón de cerrar sea más visible */
+  }
+
+  .columnas-contenedor {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Estilo para cada columna */
+  .columna {
+    width: 48%; /* Ajusta este valor según necesites */
+  }
