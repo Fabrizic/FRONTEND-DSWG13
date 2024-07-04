@@ -32,7 +32,8 @@
       <h1 class="h4 ml-2 mb-0">SISVITA</h1>
     </div>
     <nav class="d-none d-md-flex align-items-center justify-content-center">
-      <a class="nav-link text-white" href="home">Inicio</a>
+      <!-- resultados.component.html -->
+      <a class="nav-link text-white" href="#" (click)="redireccionarSegunTipoUsuario($event)">Inicio</a>
       <a class="nav-link text-white" href="#">Chatbot</a>
       <a class="nav-link text-white" href="test">Tests</a>
       <!-- Icono de usuario -->
@@ -56,7 +57,7 @@
                 >
               </div>
               <h3 class="card-title text-danger"></h3>
-              <p class="card-text">Sobre su puntuación: {{ puntaje }}/80</p>
+              <p class="card-text">Sobre su puntuación: {{ puntaje }}</p>
               <div class="d-flex justify-content-around my-3">
                 <button
                   class="btn btn-outline-info w-80"
@@ -91,9 +92,9 @@
                   </button>
                 </div>
               </div>
-              <button class="btn btn-danger" style="width: 90%">
+              <a href="https://wa.me/924321213?text=Me%20gustaría%20contactar%20a%20un%20profesional" target="_blank" class="btn btn-danger" style="width: 90%; text-decoration: none; color: white;">
                 Contactar a un profesional
-              </button>
+              </a>
             </div>
           </div>
         </div>

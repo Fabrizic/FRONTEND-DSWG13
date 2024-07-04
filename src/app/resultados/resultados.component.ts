@@ -108,4 +108,24 @@ export class ResultadosComponent implements OnInit {
   cerrarModal() {
     this.mostrarModal = false; // Método para cerrar el modal
   }
+
+  
+  redireccionarSegunTipoUsuario(event: Event) {
+    event.preventDefault(); 
+    const tipousuarioid = Number(localStorage.getItem('tipousuarioid'));
+  
+    switch(tipousuarioid) {
+      case 1:
+        this.router.navigate(['/home']);
+        break;
+      case 2:
+        this.router.navigate(['/home-psychologist']);
+        break;
+      case 3:
+        this.router.navigate(['/home-admin']);
+        break;
+      default:
+        console.log('Tipo de usuario no reconocido');
+    }
+  }
 }

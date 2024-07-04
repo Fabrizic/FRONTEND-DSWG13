@@ -43,46 +43,46 @@
   </nav>
 </header>
 <main class="container mt-4">
-  <div class="d-flex justify-content-center align-items-center h-100">
-    <h2 class="mt-4 mb-5">Información del Diagnóstico</h2>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <p class="mb-2">
-        <strong>Nombre:</strong> {{ diagnostico.data?.nombre }}
-        {{ diagnostico.data?.apellidopaterno }}
-        {{ diagnostico.data?.apellidomaterno }}
-      </p>
-      <p class="mb-2"><strong>Edad:</strong> {{ diagnostico.data?.edad }}</p>
-      <p class="mb-2">
-        <strong>Departamento:</strong> {{ diagnostico.data?.departamento }}
-      </p>
-      <p class="mb-2">
-        <strong>Provincia:</strong> {{ diagnostico.data?.provincia }}
-      </p>
-      <p class="mb-2">
-        <strong>Distrito:</strong> {{ diagnostico.data?.distrito }}
-      </p>
-      <p class="mb-2">
-        <strong>Correo Electrónico:</strong> {{ diagnostico.data?.correo }}
-      </p>
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <h2 class="mt-4 mb-5">Información del Diagnóstico</h2>
     </div>
-    <div class="col-md-6">
-      <p class="mb-2">
-        <strong>Fecha del Diagnóstico:</strong>
-        {{ diagnostico.data?.fecha }}
-      </p>
-      <p class="mb-2">
-        <strong>Test Realizado:</strong> {{ diagnostico.data?.test_nombre }}
-      </p>
-      <p class="mb-2">
-        <strong>Diagnostico:</strong> {{ diagnostico.data?.diagnostico }}
-      </p>
-      <p class="mb-2">
-        <strong>Puntaje:</strong> {{ diagnostico.data?.puntaje }}
-      </p>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="mb-2">
+          <strong>Nombre:</strong> {{ diagnostico.data?.nombre }}
+          {{ diagnostico.data?.apellidopaterno }}
+          {{ diagnostico.data?.apellidomaterno }}
+        </p>
+        <p class="mb-2"><strong>Edad:</strong> {{ diagnostico.data?.edad }}</p>
+        <p class="mb-2">
+          <strong>Departamento:</strong> {{ diagnostico.data?.departamento }}
+        </p>
+        <p class="mb-2">
+          <strong>Provincia:</strong> {{ diagnostico.data?.provincia }}
+        </p>
+        <p class="mb-2">
+          <strong>Distrito:</strong> {{ diagnostico.data?.distrito }}
+        </p>
+        <p class="mb-2">
+          <strong>Correo Electrónico:</strong> {{ diagnostico.data?.correo }}
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p class="mb-2">
+          <strong>Fecha del Diagnóstico:</strong>
+          {{ diagnostico.data?.fecha }}
+        </p>
+        <p class="mb-2">
+          <strong>Test Realizado:</strong> {{ diagnostico.data?.test_nombre }}
+        </p>
+        <p class="mb-2">
+          <strong>Diagnostico:</strong> {{ diagnostico.data?.diagnostico }}
+        </p>
+        <p class="mb-2">
+          <strong>Puntaje:</strong> {{ diagnostico.data?.puntaje }}
+        </p>
+      </div>
     </div>
-  </div>
   <div class="d-flex justify-content-center align-items-center h-100">
     <h2 class="mt-4 mb-5">Respuestas del usuario</h2>
   </div>
@@ -117,17 +117,39 @@
       <form (ngSubmit)="onSubmit()" #form="ngForm">
         <div class="form-group">
           <label for="observacionTextArea">Observación</label>
-          <textarea class="form-control" id="observacionTextArea" rows="3" [(ngModel)]="observacion" name="observacion" required></textarea>
+          <textarea
+            class="form-control"
+            id="observacionTextArea"
+            rows="3"
+            [(ngModel)]="observacion"
+            name="observacion"
+            required
+          ></textarea>
         </div>
         <div class="form-group">
           <label for="recomendacionTextArea">Recomendación</label>
-          <textarea class="form-control" id="recomendacionTextArea" rows="3" [(ngModel)]="recomendacion" name="recomendacion" required></textarea>
+          <textarea
+            class="form-control"
+            id="recomendacionTextArea"
+            rows="3"
+            [(ngModel)]="recomendacion"
+            name="recomendacion"
+            required
+          ></textarea>
         </div>
         <div class="d-flex justify-content-center mb-4">
-          <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!form.valid"
+          >
+            Enviar
+          </button>
         </div>
-        <div class="d-flex justify-content-center mb-5"> 
-          <button type="button" class="btn btn-secondary" (click)="regresar()">Regresar</button>
+        <div class="d-flex justify-content-center mb-5">
+          <button type="button" class="btn btn-secondary" (click)="regresar()">
+            Regresar
+          </button>
         </div>
       </form>
     </div>
